@@ -36,7 +36,7 @@ function setupIntialValues() {
 function update() {
   values = getCurrentUIValues();
   let monthlyPayment = calculateMonthlyPayment(values);
-  updateMonthly(calculateMonthlyPayment(values));
+  updateMonthly(monthlyPayment.toString());
 }
 
 function calculatePeriodicInterest(yrlyRate) {
@@ -55,7 +55,7 @@ function calculateMonthlyPayment(values) {
   let n = calculateNumberofPayments(values.years);
   let basePowered = Math.pow((1 + interest), n);
 
-  return ((values.amount * interest * basePowered) / (basePowered - 1)).toFixed(2).toString();
+  return ((values.amount * interest * basePowered) / (basePowered - 1)).toFixed(2);
 }
 
 // Given a string representing the monthly payment value,
